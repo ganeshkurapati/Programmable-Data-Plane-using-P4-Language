@@ -21,14 +21,14 @@ modules that can process packet headers and perform the following tasks:
 	// For different machine visit: https://mistserver.org/download
     - tar -xf mist.tgz -C /usr/bin
    
-    // You’ve now installed MistServer,to run MistServer you can use the following command:
+    //You’ve now installed MistServer,to run MistServer you can use the following command:
     - MistController
 	
 	//Accessing the management interface and setting up MistServer
 	- http://host-ip-address:4242
 	
-	// You can access the streaming at 
-	// Free version of MistServer support only the following protocols
+	//You can access the streaming at 
+	//Free version of MistServer support only the following protocols
 	Protocol : Syntax
 	MP4 : http://HOST:HTTP_PORT/STREAM_NAME.mp4
 	RTMP : rtmp://HOST:RTMP_PORT/play/STREAM_NAME
