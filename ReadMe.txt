@@ -16,13 +16,13 @@ modules that can process packet headers and perform the following tasks:
    
 /*---------------------------------------Step 1: Set up MistServer-------------------------------------*/
 	Reference: https://mistserver.org/documentation
-    //From the command line 
-    - wget https://r.mistserver.org/dl/mistserver_64V2.10.1.tar.gz -O mist.tgz  //For 64 bit machine
-	// For different machine visit: https://mistserver.org/download
-    - tar -xf mist.tgz -C /usr/bin
+	//From the command line 
+	- wget https://r.mistserver.org/dl/mistserver_64V2.10.1.tar.gz -O mist.tgz  //For 64 bit machine
+	//For different machine visit: https://mistserver.org/download
+	- tar -xf mist.tgz -C /usr/bin
    
-    //You’ve now installed MistServer,to run MistServer you can use the following command:
-    - MistController
+	//You’ve now installed MistServer,to run MistServer you can use the following command:
+	- MistController
 	
 	//Accessing the management interface and setting up MistServer
 	- http://host-ip-address:4242
