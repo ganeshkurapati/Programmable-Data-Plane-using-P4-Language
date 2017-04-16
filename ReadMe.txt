@@ -35,7 +35,7 @@ modules that can process packet headers and perform the following tasks:
 	
     Note: You can access the stream using applications like VLC, Web browser etc.
 	
-/*-------------------------Step 2: Set up QUIC(Youtube) and OpenSSL packets Stream -----------------------*/
+/*---------------------Step 2: Set up QUIC(Youtube) and OpenSSL packets Stream -----------------------*/
     1. Capture QUIC and OpenSSL packets using wireshark. You can also pcap files provides
     2. Now you can modify the packets to replay them between two different host using a sofware suite
        tcpreplay. visit: http://tcpreplay.synfin.net/ for more info.
