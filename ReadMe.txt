@@ -10,7 +10,7 @@ modules that can process packet headers and perform the following tasks:
 
 /*--------------------------------------------Contributors---------------------------------------------*/
 
-    - Naga Ganesh Kurrapati    
+    - Naga Ganesh Kurapati    
     - Rakesh Kiran Musalay
     - Ramanand Shankarling
    
