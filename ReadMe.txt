@@ -41,10 +41,10 @@ modules that can process packet headers and perform the following tasks:
        tcpreplay. visit: http://tcpreplay.synfin.net/ for more info.
        a) Install tcpreplay: sudo apt-get install tcpreplay
        b) Can modify MAC address using the command
-          tcprewrite --enet-dmac=00:55:22:AF:C6:37 --enet-smac=00:44:66:FC:29:AF --infile=input.pcap --outfile=output.pcap
+          tcprewrite --enet-dmac=mac1 --enet-smac=mac2 --infile=input.pcap --outfile=output.pcap
        c) Can modify IP Adress by using the commands
           i) tcpprep --port --cachefile=example.cache --pcap=example.pcap
-          ii) tcprewrite --endpoints=172.16.0.1:172.16.5.35 --cachefile=example.cache --infile=example.pcap --outfile=new.pcap
+          ii) tcprewrite --endpoints=ipv4-1:ipv4-2 --cachefile=example.cache --infile=example.pcap --outfile=new.pcap
           visit : http://tcpreplay.synfin.net/wiki/usage
                   http://tcpreplay.synfin.net/wiki/tcprewrite for more info.
     3. To replay the modified packets use Scapy. Visit: http://www.secdev.org/projects/scapy/
