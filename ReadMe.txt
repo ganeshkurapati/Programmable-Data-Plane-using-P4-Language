@@ -58,7 +58,7 @@ modules that can process packet headers and perform the following tasks:
     1. Place the "simple_router" floder under targets and do "make bm"
     2. Now you can start the program using the command "./run_demo.bash" // To start topology
     3. From the another command line type "run_add_demo_entries.bash" // To make router to work
-    4. Now host h1, you can start MistController or scapy to send the packets. h2 receives.
+    4. Now from host h1, you can start MistController or scapy to send the packets. h2 receives Packets.
     5. To count the packets use following commands
        quic: run_add_demo_entries_quic_count.bash
        ssl: run_add_demo_entries_ssl_count.bash
