@@ -53,4 +53,20 @@ modules that can process packet headers and perform the following tasks:
        a) To install Scapy: sudo apt-get install scapy
        b) Type scapy in the command line to start it.
        c) To send the packets use the command: sendp(rdpcap("/tmp/pcapfile"))
+
+/*---------------------------------------Step 3: Procedure-------------------------------------------*/
+    1. Place the "simple_router" floder under targets and do "make bm"
+    2. Now you can start the program using the command "./run_demo.bash" // To start topology
+    3. From the another command line type "run_add_demo_entries.bash" // To make router to work
+    4. Now host h1, you can start MistController or scapy to send the packets. h2 receives.
+    5. To count the packets use following commands
+       quic: run_add_demo_entries_quic_count.bash
+       ssl: run_add_demo_entries_ssl_count.bash
+       rtmp: run_add_demo_entries_rtmp_count.bash
+    6. To drop the packets use
+       quic: run_add_demo_entries_quic_drop.bash
+       ssl: run_add_demo_entries_ssl_drop.bash
+       rtmp: run_add_demo_entries_rtmp_drop.bash
+
+    Note: Bash files add entries in the table. They don't modify the entries
    
