@@ -76,8 +76,11 @@ table send_frame {
     size : 256;
 }
 
+action on_miss() {
+}
+
 counter c_quic {
-   type: packets_and_bytes;
+   type: packets;
    instance_count: 32;
 }
 
@@ -85,18 +88,8 @@ action count_quic(){
    count(c_quic, 1);
 }
 
-table quic_count {
-    reads { 
-        udp.dstPort : exact;
-    }
-    actions { 
-        count_quic; 
-    }
-    size : 256;
-}
-
 counter c_ssl {
-   type: packets_and_bytes;
+   type: packets;
    instance_count: 32;
 }
 
@@ -104,18 +97,8 @@ action count_ssl(){
    count(c_ssl, 1);
 }
 
-table ssl_count {
-    reads { 
-        udp.dstPort : exact;
-    }
-    actions { 
-        count_ssl;
-    }
-    size: 256;
-}
-
 counter c_rtmp {
-   type: packets_and_bytes;
+   type: packets;
    instance_count: 32;
 }
 
@@ -123,23 +106,72 @@ action count_rtmp(){
    count(c_rtmp, 1);
 }
 
-table rtmp_count {
+table quic_count_src {
     reads { 
-        tcp.dstPort : exact;
+        udp.srcPort : exact;
     }
     actions { 
-        count_rtmp;
-        _drop;
+        on_miss;
+        count_quic; 
+	    _drop;
     }
     size : 256;
 }
 
+table quic_count_dst {
+    reads { 
+        udp.dstPort : exact;
+    }
+    actions { 
+        on_miss;
+        count_quic; 
+	    _drop;
+    }
+    size : 256;
+}
+
+table ssl_rtmp_count_src {
+    reads { 
+        tcp.srcPort : exact;
+    }
+    actions {
+        on_miss;
+        count_ssl;
+        count_rtmp;
+	    _drop;
+    }
+    size: 256;
+}
+
+table ssl_rtmp_count_dst {
+    reads { 
+        tcp.dstPort : exact;
+    }
+    actions {
+        on_miss;
+        count_rtmp;
+	    _drop;
+    }
+    size: 256;
+}
+
 control ingress {
-    /*apply(quic_count);
-    apply(rtmp_count);
-    apply(ssl_count);*/
     apply(ipv4_lpm);
     apply(forward);
+    if(valid(udp)){
+    apply(quic_count_src){
+        on_miss{
+         apply(quic_count_dst);
+       }
+     }
+    }//if
+    if(valid(tcp)){
+    apply(ssl_rtmp_count_src){
+       on_miss{
+         apply(ssl_rtmp_count_dst);
+       }
+     }
+    }//if
 }
 
 control egress {
