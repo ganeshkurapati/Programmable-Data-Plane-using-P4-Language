@@ -67,6 +67,7 @@ modules that can process packet headers and perform the following tasks:
        quic: run_add_demo_entries_quic_drop.bash
        ssl: run_add_demo_entries_ssl_drop.bash
        rtmp: run_add_demo_entries_rtmp_drop.bash
-
-    Note: Bash files add entries in the table. They don't modify the entries
-   
+    7. To delete the entries 
+       quic: run_add_demo_entries_quic_delete.bash
+       ssl: run_add_demo_entries_ssl_delete.bash
+       rtmp: run_add_demo_entries_rtmp_delete.bash
